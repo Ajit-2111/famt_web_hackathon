@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+  <h1>Students Marks display</h1>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <form name="myForm">
+      <input type="number" min="1 " max="76" ng-model="rollno" placeholder="Enter the Roll No. here...">
+      <span style="color:red" ng-show="myForm.rollno.$dirty && myForm.rollno.$invalid">
+        <span ng-show="myForm.rollno.$error.email">Invalid NUMBER address.</span>
+      </span>
+      <input type="submit" ng-click="ShowHide()">
+    </form>
+    <div ng-show="IsVisible">
+      <p>Student's Name: <span>{{studentsdata.students[rollno-1].name}} </span> </p>
+      <p> Student's MCQ Marks : {{studentsdata.students[rollno-1].mcq}}</p>
+      <p>Student's NON-MCQ Marks : {{studentsdata.students[rollno-1].nmcq}}</p>
+    </div>
+
+    <table>
+      <tr>
+        <th ng-click="customOrder('-rollno')">Roll No.</th>
+        <th ng-click="customOrder('-name')">Name </th>
+        <th ng-click="customOrder('-mcq')">MCQ Marks</th>
+        <th ng-click="customOrder('-nmcq')">Non-MCQ Marks</th>
+      </tr>
+      <tr ng-repeat="data in studentsdata.students | orderBy:customOrderBy">
+        <td>{{data.rollno}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.mcq}}</td>
+        <td>{{data.nmcq}}</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>
