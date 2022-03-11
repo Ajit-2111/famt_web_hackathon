@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+
+<body>
+  <h1>This is a todo list using Angularjs</h1>
+  <div ng-controller="myCtrl">
+    <form ng-submit="addtask()">
+      <input type="text" placeholder="Enter the task here ..." ng-model="newtask">
+      <input type="submit">
+    </form>
+    <table>
+      <tr>
+        <th>Index</th>
+        <th>Task</th>
+        <th>Action</th>
+        <th>Status</th>
+      </tr>
+      <tr ng-repeat="task in tasks">
+        <td>{{task.index}}</td>
+        <td>{{task.work}}</td>
+        <td><input type="checkbox" ng-model="myVar"></td>
+        <td>
+          <p ng-if="myVar">Yes</p>
+          <p ng-if="!myVar">No</p>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+
+</html>
