@@ -10,10 +10,10 @@ app.controller("myCtrl", function ($scope) {
       (value, index, self) =>
         index === self.findIndex((t) =>  t.fname === value.fname && t.lname === value.lname)
     );
-    for (i in  $scope.friends) {
-      console.log(i.fname , i.lname)
-    }
-    console.log($scope.friends);
+angular.forEach($scope.friends, function (item, index) {
+      console.log(item.fname, item.lname);
+    });
+
     $scope.newfname="";
      $scope.newlname= ""
   };
