@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="angular.min.js"></script>
+
+        <script src="index.js"></script>
+    </head>
+    <body ng-app="myModule" style="text-align: center">
+
+        <div ng-controller="myController">
+            <br/><br/>
+            <h1 >Pipe Implementation Using AngularJs</h1>
+            <br/><br/>
+            <div>
+            <b style="font-size: 20px;">1. Title Case </b><input type="text" ng-model="message1"/><br/><br/>
+            <b>The Output is : {{message1 | titleCase}}</b>
+            </div>
+            <br/>
+            
+            <br/><br/>
+            <div ng-controller="myController">
+                <b style="font-size: 20px;">2. Reverse Case </b><input type="text" ng-model="inputText"/><br/><br/>
+              
+                <b>The Output is : {{output()}}</b>
+                
+            </div>
+            
+            
+            
+        <!-- </div> -->
+
+    </body>
+</html>
